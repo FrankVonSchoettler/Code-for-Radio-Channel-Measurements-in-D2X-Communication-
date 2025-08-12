@@ -17,3 +17,7 @@ This repository contains a GNU Flowgraph of the transceiver.
   c. A Peak Detector block detects peaks from the correlated signal.
   d. The NodeIdentifier python Block receives as input the received signal as well as the peaks from the Peak Detector. The distance of the peaks corresponds to the length of the ZC sequence +- the index Q. Based on this, the node is identifies and the receive power is calculated as the mean of the received power on the packet.
 
+# Measured Data
+
+Data was measured in a running industrial factory from SEW EURODRIVE in Graben Neudorf, Germany, back in Februar of 2025.
+The measured data was saved in a .csv file for analysis of the paper Radio Channel Measurements of D2X Communication in an Running Industrial Factory.
