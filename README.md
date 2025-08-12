@@ -21,3 +21,5 @@ This repository contains a GNU Flowgraph of the transceiver.
 
 Data was measured in a running industrial factory from SEW EURODRIVE in Graben Neudorf, Germany, back in Februar of 2025.
 The measured data was saved in a .csv file for analysis of the paper Radio Channel Measurements of D2X Communication in an Running Industrial Factory.
+
+The data includes the senderID and receiverID (which nodes sent and received the signal), the timestamp when the signal starts and the timestamp where it ends. The received power is dBm is calculated as the mean value of the amplitude squeared of the received signal between start and end time. Furthermore, the coordinates of the nodes in the production hall were added up from the AGVs. 
