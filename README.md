@@ -4,6 +4,11 @@ This project implements a wireless measurement setup where transmitters send sho
 
 # Details of the GNU Radio Flowgraph
 This repository contains a GNU Flowgraph of the transceiver. 
+
+<p align="center">
+  <img src="./Figures_GNU/Measurement_Node.png" width="700">
+</p>
+
 1. The transmitter side has a python block called PacketPoissonGenerator with some variables.
   a. Inter_Arrival_Time_Mean: The mean on how packets per second the node sends
   b. Tau is the packet length. It is recommended to set it to a few ms to avoid collisions between nodes  
