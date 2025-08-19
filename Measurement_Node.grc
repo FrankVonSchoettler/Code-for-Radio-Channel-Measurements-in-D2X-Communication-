@@ -1,6 +1,6 @@
 options:
   parameters:
-    author: devonfra
+    author: Frank von Schoettler
     catch_exceptions: 'True'
     category: '[GRC Hier Blocks]'
     cmake_opt: ''
@@ -11,24 +11,24 @@ options:
     gen_linking: dynamic
     generate_options: qt_gui
     hier_block_src_path: '.:'
-    id: latest_pulse_extract_upd
+    id: Measurement_Campaign_Mesh_SEW
     max_nouts: '0'
     output_language: python
     placement: (0,0)
     qt_qss_theme: ''
-    realtime_scheduling: ''
+    realtime_scheduling: '1'
     run: 'True'
     run_command: '{python} -u {filename}'
     run_options: prompt
     sizing_mode: fixed
     thread_safe_setters: ''
-    title: PoissonTransceiver
+    title: Poisson_Transceiver
     window_size: (1000,1000)
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [8, 8]
+    coordinate: [168, 280.0]
     rotation: 0
     state: enabled
 
@@ -51,19 +51,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [824, 4.0]
-    rotation: 0
-    state: true
-- name: NOP
-  id: variable
-  parameters:
-    comment: ''
-    value: 25600*50
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1072, 4.0]
+    coordinate: [456, 264.0]
     rotation: 0
     state: true
 - name: N_Zc
@@ -75,9 +63,21 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [576, 12.0]
+    coordinate: [168, 704.0]
     rotation: 0
     state: true
+- name: Node_ID
+  id: variable
+  parameters:
+    comment: ''
+    value: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [168, 416.0]
+    rotation: 0
+    state: enabled
 - name: Resampled_factor
   id: variable
   parameters:
@@ -87,7 +87,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [248, 164.0]
+    coordinate: [168, 560.0]
     rotation: 0
     state: true
 - name: Tau
@@ -108,63 +108,33 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [944, 4.0]
+    coordinate: [576, 264.0]
     rotation: 0
     state: enabled
 - name: center_freq_mhz
-  id: variable_qtgui_range
-  parameters:
-    comment: ''
-    gui_hint: 0,0,1,1
-    label: Center Frequency (MHz)
-    min_len: '10'
-    orient: QtCore.Qt.Horizontal
-    rangeType: float
-    start: '70'
-    step: '0.1'
-    stop: '6000'
-    value: '3750'
-    widget: counter_slider
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [280, 12.0]
-    rotation: 0
-    state: true
-- name: clock_rt
   id: variable
   parameters:
     comment: ''
-    value: 10e6
+    value: '3750'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [168, 108.0]
+    coordinate: [168, 488.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: rx_gain
-  id: variable_qtgui_range
+  id: variable
   parameters:
     comment: ''
-    gui_hint: 1,0,1,1
-    label: RX Gain (dB)
-    min_len: '200'
-    orient: QtCore.Qt.Horizontal
-    rangeType: float
-    start: '0'
-    step: '1'
-    stop: '65'
     value: '40'
-    widget: counter_slider
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [456, 12.0]
+    coordinate: [704, 264.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: samp_rate
   id: variable
   parameters:
@@ -174,209 +144,31 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [184, 12]
+    coordinate: [168, 632.0]
     rotation: 0
     state: enabled
 - name: tx_gain
-  id: variable_qtgui_range
+  id: variable
   parameters:
     comment: ''
-    gui_hint: ''
-    label: Normalized TX Gain
-    min_len: '200'
-    orient: QtCore.Qt.Horizontal
-    rangeType: float
-    start: '0'
-    step: '0.02'
-    stop: '1'
-    value: '1.0'
-    widget: counter_slider
+    value: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [656, 12.0]
+    coordinate: [784, 264.0]
     rotation: 0
     state: enabled
 - name: vector_size
   id: variable
   parameters:
     comment: ''
-    value: '1024'
+    value: '2048'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [160, 156.0]
-    rotation: 0
-    state: true
-- name: zc_seq0
-  id: variable
-  parameters:
-    comment: ''
-    value: (1.00000+0.00000j, 0.99470-0.10282j, 0.95264-0.30411j, 0.81503-0.57942j,
-      0.51479-0.85731j, 0.02575-0.99967j, -0.55824-0.82968j, -0.96703-0.25467j, -0.84378+0.53670j,
-      -0.07718+0.99702j, 0.81503+0.57942j, 0.87029-0.49255j, -0.17928-0.98380j, -0.99867-0.05148j,
-      -0.17928+0.98380j, 0.97886+0.20455j, 0.12840-0.99172j, -0.99867+0.05148j, 0.32854+0.94449j,
-      0.75113-0.66015j, -0.93572-0.35275j, 0.22969+0.97326j, 0.60021-0.79984j, -0.98809+0.15389j,
-      0.87029+0.49255j, -0.46998-0.88268j, 0.02575+0.99967j, 0.32854-0.94449j, -0.55824+0.82968j,
-      0.67927-0.73389j, -0.71615+0.69794j, 0.67927-0.73389j, -0.55824+0.82968j, 0.32854-0.94449j,
-      0.02575+0.99967j, -0.46998-0.88268j, 0.87029+0.49255j, -0.98809+0.15389j, 0.60021-0.79984j,
-      0.22969+0.97326j, -0.93572-0.35275j, 0.75113-0.66015j, 0.32854+0.94449j, -0.99867+0.05148j,
-      0.12840-0.99172j, 0.97886+0.20455j, -0.17928+0.98380j, -0.99867-0.05148j, -0.17928-0.98380j,
-      0.87029-0.49255j, 0.81503+0.57942j, -0.07718+0.99702j, -0.84378+0.53670j, -0.96703-0.25467j,
-      -0.55824-0.82968j, 0.02575-0.99967j, 0.51479-0.85731j, 0.81503-0.57942j, 0.95264-0.30411j,
-      0.99470-0.10282j, 1.00000-0.00000j)
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [0, 164.0]
-    rotation: 0
-    state: true
-- name: zc_seq0_resampled_10times
-  id: variable
-  parameters:
-    comment: ''
-    value: (1.00000+0.00000j, 0.99998-0.04524j, 0.99992-0.08764j, 0.99980-0.12372j,
-      0.99958-0.15070j, 0.99925-0.16678j, 0.99877-0.17135j, 0.99811-0.16500j, 0.99724-0.14950j,
-      0.99612-0.12761j, 0.99470-0.10282j, 0.99294-0.07900j, 0.99078-0.06002j, 0.98819-0.04939j,
-      0.98509-0.04987j, 0.98144-0.06326j, 0.97717-0.09017j, 0.97222-0.12998j, 0.96653-0.18090j,
-      0.96002-0.24012j, 0.95264-0.30411j, 0.94430-0.36894j, 0.93495-0.43064j, 0.92451-0.48565j,
-      0.91292-0.53109j, 0.90009-0.56507j, 0.88596-0.58689j, 0.87047-0.59707j, 0.85352-0.59729j,
-      0.83507-0.59026j, 0.81503-0.57942j, 0.79334-0.56859j, 0.76993-0.56160j, 0.74474-0.56191j,
-      0.71772-0.57225j, 0.68881-0.59433j, 0.65797-0.62868j, 0.62517-0.67458j, 0.59038-0.73009j,
-      0.55359-0.79224j, 0.51479-0.85731j, 0.47400-0.92118j, 0.43124-0.97966j, 0.38655-1.02898j,
-      0.33998-1.06605j, 0.29159-1.08881j, 0.24147-1.09639j, 0.18971-1.08916j, 0.13641-1.06874j,
-      0.08171-1.03777j, 0.02575-0.99967j, -0.03132-0.95826j, -0.08931-0.91741j, -0.14803-0.88062j,
-      -0.20726-0.85067j, -0.26675-0.82934j, -0.32625-0.81720j, -0.38547-0.81356j,
-      -0.44410-0.81651j, -0.50181-0.82312j, -0.55824-0.82968j, -0.61304-0.83210j,
-      -0.66581-0.82628j, -0.71617-0.80852j, -0.76370-0.77592j, -0.80799-0.72661j,
-      -0.84865-0.66003j, -0.88527-0.57694j, -0.91746-0.47942j, -0.94483-0.37065j,
-      -0.96703-0.25467j, -0.98371-0.13600j, -0.99455-0.01924j, -0.99926+0.09135j,
-      -0.99759+0.19220j, -0.98931+0.28078j, -0.97423+0.35575j, -0.95221+0.41709j,
-      -0.92315+0.46603j, -0.88700+0.50486j, -0.84378+0.53670j, -0.79355+0.56508j,
-      -0.73647+0.59358j, -0.67275+0.62539j, -0.60270+0.66294j, -0.52669+0.70761j,
-      -0.44521+0.75951j, -0.35882+0.81741j, -0.26818+0.87881j, -0.17402+0.94014j,
-      -0.07718+0.99702j, 0.02145+1.04468j, 0.12087+1.07839j, 0.22006+1.09390j, 0.31795+1.08784j,
-      0.41341+1.05804j, 0.50532+1.00378j, 0.59255+0.92587j, 0.67396+0.82660j, 0.74847+0.70958j,
-      0.81503+0.57942j, 0.87263+0.44138j, 0.92035+0.30088j, 0.95736+0.16312j, 0.98291+0.03259j,
-      0.99638-0.08719j, 0.99726-0.19400j, 0.98521-0.28695j, 0.96002-0.36647j, 0.92166-0.43417j,
-      0.87029-0.49255j, 0.80623-0.54458j, 0.73006-0.59335j, 0.64253-0.64159j, 0.54462-0.69128j,
-      0.43754-0.74336j, 0.32270-0.79748j, 0.20172-0.85200j, 0.07639-0.90398j, -0.05131-0.94947j,
-      -0.17928-0.98380j, -0.30533-1.00204j, -0.42718-0.99946j, -0.54258-0.97204j,
-      -0.64929-0.91690j, -0.74515-0.83268j, -0.82814-0.71978j, -0.89645-0.58043j,
-      -0.94846-0.41866j, -0.98288-0.24008j, -0.99867-0.05148j, -0.99520+0.13957j,
-      -0.97217+0.32527j, -0.92968+0.49819j, -0.86824+0.65168j, -0.78874+0.78042j,
-      -0.69251+0.88067j, -0.58122+0.95047j, -0.45694+0.98968j, -0.32206+0.99982j,
-      -0.17928+0.98380j, -0.03157+0.94555j, 0.11791+0.88957j, 0.26582+0.82042j, 0.40876+0.74231j,
-      0.54328+0.65869j, 0.66602+0.57200j, 0.77376+0.48353j, 0.86351+0.39344j, 0.93262+0.30093j,
-      0.97886+0.20455j, 1.00047+0.10256j, 0.99632-0.00662j, 0.96591-0.12393j, 0.90944-0.24930j,
-      0.82787-0.38133j, 0.72291-0.51713j, 0.59700-0.65228j, 0.45332-0.78103j, 0.29566-0.89662j,
-      0.12840-0.99172j, -0.04367-1.05906j, -0.21544-1.09201j, -0.38167-1.08525j, -0.53713-1.03532j,
-      -0.67682-0.94111j, -0.79609-0.80408j, -0.89086-0.62845j, -0.95774-0.42099j,
-      -0.99421-0.19075j, -0.99867+0.05148j, -0.97059+0.29385j, -0.91051+0.52420j,
-      -0.82004+0.73088j, -0.70187+0.90355j, -0.55969+1.03381j, -0.39808+1.11578j,
-      -0.22235+1.14645j, -0.03842+1.12578j, 0.14738+1.05664j, 0.32854+0.94449j, 0.49859+0.79688j,
-      0.65130+0.62286j, 0.78091+0.43228j, 0.88240+0.23507j, 0.95160+0.04060j, 0.98544-0.14289j,
-      0.98210-0.30872j, 0.94108-0.45197j, 0.86331-0.56956j, 0.75113-0.66015j, 0.60833-0.72385j,
-      0.44001-0.76188j, 0.25245-0.77611j, 0.05293-0.76869j, -0.15055-0.74164j, -0.34954-0.69662j,
-      -0.53548-0.63475j, -0.70008-0.55665j, -0.83570-0.46259j, -0.93572-0.35275j,
-      -0.99486-0.22762j, -1.00956-0.08836j, -0.97817+0.06279j, -0.90115+0.22221j,
-      -0.78117+0.38473j, -0.62304+0.54368j, -0.43361+0.69102j, -0.22150+0.81783j,
-      0.00327+0.91485j, 0.22969+0.97326j, 0.44635+0.98548j, 0.64202+0.94601j, 0.80620+0.85219j,
-      0.92981+0.70478j, 1.00565+0.50838j, 1.02894+0.27143j, 0.99765+0.00604j, 0.91267-0.27267j,
-      0.77793-0.54740j, 0.60021-0.79984j, 0.38890-1.01201j, 0.15547-1.16766j, -0.08710-1.25359j,
-      -0.32505-1.26090j, -0.54466-1.18591j, -0.73304-1.03068j, -0.87894-0.80324j,
-      -0.97348-0.51714j, -1.01071-0.19078j, -0.98809+0.15389j, -0.90667+0.49288j,
-      -0.77111+0.80190j, -0.58947+1.05827j, -0.37273+1.24265j, -0.13415+1.34066j,
-      0.11149+1.34411j, 0.34889+1.25172j, 0.56313+1.06946j, 0.74068+0.81014j, 0.87029+0.49255j,
-      0.94371+0.14012j, 0.95632-0.22088j, 0.90742-0.56336j, 0.80033-0.86150j, 0.64220-1.09283j,
-      0.44356-1.23998j, 0.21765-1.29214j, -0.02046-1.24588j, -0.25489-1.10550j, -0.46998-0.88268j,
-      -0.65138-0.59553j, -0.78706-0.26717j, -0.86808+0.07616j, -0.88926+0.40722j,
-      -0.84954+0.69997j, -0.75203+0.93169j, -0.60386+1.08481j, -0.41562+1.14831j,
-      -0.20069+1.11859j, 0.02575+0.99967j, 0.24776+0.80284j, 0.44977+0.54564j, 0.61770+0.25033j,
-      0.73991-0.05801j, 0.80809-0.35357j, 0.81780-0.61207j, 0.76882-0.81269j, 0.66513-0.93984j,
-      0.51462-0.98442j, 0.32854-0.94449j, 0.12065-0.82533j, -0.09378-0.63892j, -0.29906-0.40280j,
-      -0.48028-0.13848j, -0.62432+0.13048j, -0.72088+0.38054j, -0.76320+0.59022j,
-      -0.74853+0.74199j, -0.67835+0.82372j, -0.55824+0.82968j, -0.39747+0.76096j,
-      -0.20826+0.62529j, -0.00492+0.43627j, 0.19725+0.21204j, 0.38309-0.02635j, 0.53875-0.25688j,
-      0.65265-0.45859j, 0.71641-0.61340j, 0.72544-0.70778j, 0.67927-0.73389j, 0.58162-0.69024j,
-      0.44005-0.58182j, 0.26544-0.41954j, 0.07114-0.21919j, -0.12804-0.00000j, -0.31693+0.21719j,
-      -0.48119+0.41185j, -0.60832+0.56562j, -0.68867+0.66407j, -0.71615+0.69794j,
-      -0.68867+0.66407j, -0.60832+0.56562j, -0.48119+0.41185j, -0.31693+0.21719j,
-      -0.12804-0.00000j, 0.07114-0.21919j, 0.26544-0.41954j, 0.44005-0.58182j, 0.58162-0.69024j,
-      0.67927-0.73389j, 0.72544-0.70778j, 0.71641-0.61340j, 0.65265-0.45859j, 0.53875-0.25688j,
-      0.38309-0.02635j, 0.19725+0.21204j, -0.00492+0.43627j, -0.20826+0.62529j, -0.39747+0.76096j,
-      -0.55824+0.82968j, -0.67835+0.82372j, -0.74853+0.74199j, -0.76320+0.59022j,
-      -0.72088+0.38054j, -0.62432+0.13048j, -0.48028-0.13848j, -0.29906-0.40280j,
-      -0.09378-0.63892j, 0.12065-0.82533j, 0.32854-0.94449j, 0.51462-0.98442j, 0.66513-0.93984j,
-      0.76882-0.81269j, 0.81780-0.61207j, 0.80809-0.35357j, 0.73991-0.05801j, 0.61770+0.25033j,
-      0.44977+0.54564j, 0.24776+0.80284j, 0.02575+0.99967j, -0.20069+1.11859j, -0.41562+1.14831j,
-      -0.60386+1.08481j, -0.75203+0.93169j, -0.84954+0.69997j, -0.88926+0.40722j,
-      -0.86808+0.07616j, -0.78706-0.26717j, -0.65138-0.59553j, -0.46998-0.88268j,
-      -0.25489-1.10550j, -0.02046-1.24588j, 0.21765-1.29214j, 0.44356-1.23998j, 0.64220-1.09283j,
-      0.80033-0.86150j, 0.90742-0.56336j, 0.95632-0.22088j, 0.94371+0.14012j, 0.87029+0.49255j,
-      0.74068+0.81014j, 0.56313+1.06946j, 0.34889+1.25172j, 0.11149+1.34411j, -0.13415+1.34066j,
-      -0.37273+1.24265j, -0.58947+1.05827j, -0.77111+0.80190j, -0.90667+0.49288j,
-      -0.98809+0.15389j, -1.01071-0.19078j, -0.97348-0.51714j, -0.87894-0.80324j,
-      -0.73304-1.03068j, -0.54466-1.18591j, -0.32505-1.26090j, -0.08710-1.25359j,
-      0.15547-1.16766j, 0.38890-1.01201j, 0.60021-0.79984j, 0.77793-0.54740j, 0.91267-0.27267j,
-      0.99765+0.00604j, 1.02894+0.27143j, 1.00565+0.50838j, 0.92981+0.70478j, 0.80620+0.85219j,
-      0.64202+0.94601j, 0.44635+0.98548j, 0.22969+0.97326j, 0.00327+0.91485j, -0.22150+0.81783j,
-      -0.43361+0.69102j, -0.62304+0.54368j, -0.78117+0.38473j, -0.90115+0.22221j,
-      -0.97817+0.06279j, -1.00956-0.08836j, -0.99486-0.22762j, -0.93572-0.35275j,
-      -0.83570-0.46259j, -0.70008-0.55665j, -0.53548-0.63475j, -0.34954-0.69662j,
-      -0.15055-0.74164j, 0.05293-0.76869j, 0.25245-0.77611j, 0.44001-0.76188j, 0.60833-0.72385j,
-      0.75113-0.66015j, 0.86331-0.56956j, 0.94108-0.45197j, 0.98210-0.30872j, 0.98544-0.14289j,
-      0.95160+0.04060j, 0.88240+0.23507j, 0.78091+0.43228j, 0.65130+0.62286j, 0.49859+0.79688j,
-      0.32854+0.94449j, 0.14738+1.05664j, -0.03842+1.12578j, -0.22235+1.14645j, -0.39808+1.11578j,
-      -0.55969+1.03381j, -0.70187+0.90355j, -0.82004+0.73088j, -0.91051+0.52420j,
-      -0.97059+0.29385j, -0.99867+0.05148j, -0.99421-0.19075j, -0.95774-0.42099j,
-      -0.89086-0.62845j, -0.79609-0.80408j, -0.67682-0.94111j, -0.53713-1.03532j,
-      -0.38167-1.08525j, -0.21544-1.09201j, -0.04367-1.05906j, 0.12840-0.99172j, 0.29566-0.89662j,
-      0.45332-0.78103j, 0.59700-0.65228j, 0.72291-0.51713j, 0.82787-0.38133j, 0.90944-0.24930j,
-      0.96591-0.12393j, 0.99632-0.00662j, 1.00047+0.10256j, 0.97886+0.20455j, 0.93262+0.30093j,
-      0.86351+0.39344j, 0.77376+0.48353j, 0.66602+0.57200j, 0.54328+0.65869j, 0.40876+0.74231j,
-      0.26582+0.82042j, 0.11791+0.88957j, -0.03157+0.94555j, -0.17928+0.98380j, -0.32206+0.99982j,
-      -0.45694+0.98968j, -0.58122+0.95047j, -0.69251+0.88067j, -0.78874+0.78042j,
-      -0.86824+0.65168j, -0.92968+0.49819j, -0.97217+0.32527j, -0.99520+0.13957j,
-      -0.99867-0.05148j, -0.98288-0.24008j, -0.94846-0.41866j, -0.89645-0.58043j,
-      -0.82814-0.71978j, -0.74515-0.83268j, -0.64929-0.91690j, -0.54258-0.97204j,
-      -0.42718-0.99946j, -0.30533-1.00204j, -0.17928-0.98380j, -0.05131-0.94947j,
-      0.07639-0.90398j, 0.20172-0.85200j, 0.32270-0.79748j, 0.43754-0.74336j, 0.54462-0.69128j,
-      0.64253-0.64159j, 0.73006-0.59335j, 0.80623-0.54458j, 0.87029-0.49255j, 0.92166-0.43417j,
-      0.96002-0.36647j, 0.98521-0.28695j, 0.99726-0.19400j, 0.99638-0.08719j, 0.98291+0.03259j,
-      0.95736+0.16312j, 0.92035+0.30088j, 0.87263+0.44138j, 0.81503+0.57942j, 0.74847+0.70958j,
-      0.67396+0.82660j, 0.59255+0.92587j, 0.50532+1.00378j, 0.41341+1.05804j, 0.31795+1.08784j,
-      0.22006+1.09390j, 0.12087+1.07839j, 0.02145+1.04468j, -0.07718+0.99702j, -0.17402+0.94014j,
-      -0.26818+0.87881j, -0.35882+0.81741j, -0.44521+0.75951j, -0.52669+0.70761j,
-      -0.60270+0.66294j, -0.67275+0.62539j, -0.73647+0.59358j, -0.79355+0.56508j,
-      -0.84378+0.53670j, -0.88700+0.50486j, -0.92315+0.46603j, -0.95221+0.41709j,
-      -0.97423+0.35575j, -0.98931+0.28078j, -0.99759+0.19220j, -0.99926+0.09135j,
-      -0.99455-0.01924j, -0.98371-0.13600j, -0.96703-0.25467j, -0.94483-0.37065j,
-      -0.91746-0.47942j, -0.88527-0.57694j, -0.84865-0.66003j, -0.80799-0.72661j,
-      -0.76370-0.77592j, -0.71617-0.80852j, -0.66581-0.82628j, -0.61304-0.83210j,
-      -0.55824-0.82968j, -0.50181-0.82312j, -0.44410-0.81651j, -0.38547-0.81356j,
-      -0.32625-0.81720j, -0.26675-0.82934j, -0.20726-0.85067j, -0.14803-0.88062j,
-      -0.08931-0.91741j, -0.03132-0.95826j, 0.02575-0.99967j, 0.08171-1.03777j, 0.13641-1.06874j,
-      0.18971-1.08916j, 0.24147-1.09639j, 0.29159-1.08881j, 0.33998-1.06605j, 0.38655-1.02898j,
-      0.43124-0.97966j, 0.47400-0.92118j, 0.51479-0.85731j, 0.55359-0.79224j, 0.59038-0.73009j,
-      0.62517-0.67458j, 0.65797-0.62868j, 0.68881-0.59433j, 0.71772-0.57225j, 0.74474-0.56191j,
-      0.76993-0.56160j, 0.79334-0.56859j, 0.81503-0.57942j, 0.83507-0.59026j, 0.85352-0.59729j,
-      0.87047-0.59707j, 0.88596-0.58689j, 0.90009-0.56507j, 0.91292-0.53109j, 0.92451-0.48565j,
-      0.93495-0.43064j, 0.94430-0.36894j, 0.95264-0.30411j, 0.96002-0.24012j, 0.96653-0.18090j,
-      0.97222-0.12998j, 0.97717-0.09017j, 0.98144-0.06326j, 0.98509-0.04987j, 0.98819-0.04939j,
-      0.99078-0.06002j, 0.99294-0.07900j, 0.99470-0.10282j, 0.99612-0.12761j, 0.99724-0.14950j,
-      0.99811-0.16500j, 0.99877-0.17135j, 0.99925-0.16678j, 0.99958-0.15070j, 0.99980-0.12372j,
-      0.99992-0.08764j, 0.99998-0.04524j, 1.00000-0.00000j, 0.99999+0.04420j, 0.99997+0.08348j,
-      0.99994+0.11437j, 0.99992+0.13409j, 0.99991+0.14087j, 0.99992+0.13409j, 0.99994+0.11437j,
-      0.99997+0.08348j, 0.99999+0.04420j)
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [176, 220.0]
+    coordinate: [168, 776.0]
     rotation: 0
     state: true
 - name: zc_seq0_resampled_2times
@@ -413,70 +205,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [0, 108.0]
-    rotation: 0
-    state: true
-- name: zc_seq0_resampled_4times
-  id: variable
-  parameters:
-    comment: ''
-    value: (1.00000+0.00000j, 0.98980+0.04856j, 0.98274+0.03799j, 0.98019-0.05371j,
-      0.97886-0.20455j, 0.97216-0.36114j, 0.95342-0.46953j, 0.91913-0.50645j, 0.87029-0.49255j,
-      0.81119-0.47979j, 0.74627-0.52036j, 0.67691-0.63506j, 0.60021-0.79984j, 0.51037-0.95828j,
-      0.40200-1.05306j, 0.27347-1.05795j, 0.12840-0.99172j, -0.02560-0.90574j, -0.18007-0.85237j,
-      -0.32895-0.85271j, -0.46998-0.88268j, -0.60343-0.88584j, -0.72900-0.80584j,
-      -0.84269-0.61974j, -0.93572-0.35275j, -0.99621-0.06571j, -1.01294+0.17757j,
-      -0.97914+0.34414j, -0.89449+0.44709j, -0.76429+0.53313j, -0.59666+0.64970j,
-      -0.39950+0.81110j, -0.17928+0.98380j, 0.05772+1.10042j, 0.30243+1.09494j, 0.54034+0.93924j,
-      0.75113+0.66015j, 0.91147+0.32681j, 1.00006+0.01572j, 1.00286-0.22639j, 0.91632-0.40045j,
-      0.74750-0.54342j, 0.51166-0.69443j, 0.22907-0.85953j, -0.07718-0.99702j, -0.38156-1.03377j,
-      -0.65558-0.90489j, -0.86806-0.59444j, -0.98809-0.15389j, -0.99082+0.31355j,
-      -0.86481+0.69519j, -0.61794+0.91516j, -0.27949+0.96015j, 0.10320+0.87160j, 0.47267+0.71106j,
-      0.77160+0.52081j, 0.95264+0.30411j, 0.98579+0.03732j, 0.86269-0.29419j, 0.59817-0.65985j,
-      0.22969-0.97326j, -0.18552-1.11886j, -0.57647-1.00571j, -0.86874-0.62079j, -0.99867-0.05148j,
-      -0.92922+0.53849j, -0.66303+0.97078j, -0.24779+1.12289j, 0.22969+0.97326j, 0.66112+0.60017j,
-      0.94238+0.13823j, 1.00058-0.28201j, 0.81503-0.57942j, 0.42572-0.73194j, -0.07350-0.75319j,
-      -0.55619-0.65838j, -0.89449-0.44709j, -0.99290-0.11679j, -0.81659+0.30237j,
-      -0.40594+0.71965j, 0.12840+0.99172j, 0.63164+0.97605j, 0.94805+0.60909j, 0.97024-0.03311j,
-      0.67927-0.73389j, 0.15974-1.21000j, -0.41984-1.23562j, -0.85960-0.75888j, -0.99867+0.05148j,
-      -0.77824+0.86253j, -0.27129+1.31976j, 0.33694+1.21225j, 0.81503+0.57942j, 0.97519-0.29741j,
-      0.75116-1.02100j, 0.23034-1.26424j, -0.37673-0.92632j, -0.82056-0.18100j, -0.91701+0.60891j,
-      -0.62724+1.06934j, -0.07718+0.99702j, 0.49468+0.45449j, 0.84016-0.26861j, 0.81069-0.80710j,
-      0.42391-0.90570j, -0.14341-0.54342j, -0.63443+0.06560j, -0.82828+0.59222j, -0.64059+0.76788j,
-      -0.16199+0.52252j, 0.38377+0.01318j, 0.74333-0.46888j, 0.75113-0.66015j, 0.40628-0.46723j,
-      -0.12736-0.01316j, -0.59804+0.43568j, -0.78412+0.62061j, -0.59804+0.43568j,
-      -0.12736-0.01316j, 0.40628-0.46723j, 0.75113-0.66015j, 0.74333-0.46888j, 0.38377+0.01318j,
-      -0.16199+0.52252j, -0.64059+0.76788j, -0.82828+0.59222j, -0.63443+0.06560j,
-      -0.14341-0.54342j, 0.42391-0.90570j, 0.81069-0.80710j, 0.84016-0.26861j, 0.49468+0.45449j,
-      -0.07718+0.99702j, -0.62724+1.06934j, -0.91701+0.60891j, -0.82056-0.18100j,
-      -0.37673-0.92632j, 0.23034-1.26424j, 0.75116-1.02100j, 0.97519-0.29741j, 0.81503+0.57942j,
-      0.33694+1.21225j, -0.27129+1.31976j, -0.77824+0.86253j, -0.99867+0.05148j, -0.85960-0.75888j,
-      -0.41984-1.23562j, 0.15974-1.21000j, 0.67927-0.73389j, 0.97024-0.03311j, 0.94805+0.60909j,
-      0.63164+0.97605j, 0.12840+0.99172j, -0.40594+0.71965j, -0.81659+0.30237j, -0.99290-0.11679j,
-      -0.89449-0.44709j, -0.55619-0.65838j, -0.07350-0.75319j, 0.42572-0.73194j, 0.81503-0.57942j,
-      1.00058-0.28201j, 0.94238+0.13823j, 0.66112+0.60017j, 0.22969+0.97326j, -0.24779+1.12289j,
-      -0.66303+0.97078j, -0.92922+0.53849j, -0.99867-0.05148j, -0.86874-0.62079j,
-      -0.57647-1.00571j, -0.18552-1.11886j, 0.22969-0.97326j, 0.59817-0.65985j, 0.86269-0.29419j,
-      0.98579+0.03732j, 0.95264+0.30411j, 0.77160+0.52081j, 0.47267+0.71106j, 0.10320+0.87160j,
-      -0.27949+0.96015j, -0.61794+0.91516j, -0.86481+0.69519j, -0.99082+0.31355j,
-      -0.98809-0.15389j, -0.86806-0.59444j, -0.65558-0.90489j, -0.38156-1.03377j,
-      -0.07718-0.99702j, 0.22907-0.85953j, 0.51166-0.69443j, 0.74750-0.54342j, 0.91632-0.40045j,
-      1.00286-0.22639j, 1.00006+0.01572j, 0.91147+0.32681j, 0.75113+0.66015j, 0.54034+0.93924j,
-      0.30243+1.09494j, 0.05772+1.10042j, -0.17928+0.98380j, -0.39950+0.81110j, -0.59666+0.64970j,
-      -0.76429+0.53313j, -0.89449+0.44709j, -0.97914+0.34414j, -1.01294+0.17757j,
-      -0.99621-0.06571j, -0.93572-0.35275j, -0.84269-0.61974j, -0.72900-0.80584j,
-      -0.60343-0.88584j, -0.46998-0.88268j, -0.32895-0.85271j, -0.18007-0.85237j,
-      -0.02560-0.90574j, 0.12840-0.99172j, 0.27347-1.05795j, 0.40200-1.05306j, 0.51037-0.95828j,
-      0.60021-0.79984j, 0.67691-0.63506j, 0.74627-0.52036j, 0.81119-0.47979j, 0.87029-0.49255j,
-      0.91913-0.50645j, 0.95342-0.46953j, 0.97216-0.36114j, 0.97886-0.20455j, 0.98019-0.05371j,
-      0.98274+0.03799j, 0.98980+0.04856j, 1.00000-0.00000j, 1.00869-0.05481j, 1.01110-0.06315j,
-      1.00554-0.00329j, 0.99470+0.10282j, 0.98435+0.20245j, 0.98013+0.24294j, 0.98435+0.20245j,
-      0.99470+0.10282j, 1.00554-0.00329j, 1.01110-0.06315j, 1.00869-0.05481j)
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [0, 220.0]
+    coordinate: [856, 264.0]
     rotation: 0
     state: true
 - name: blocks_char_to_float_0
@@ -493,9 +222,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1016, 324.0]
+    coordinate: [944, 360.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: blocks_complex_to_mag_0_1_0
   id: blocks_complex_to_mag
   parameters:
@@ -509,10 +238,10 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [632, 464.0]
+    coordinate: [760, 416.0]
     rotation: 0
     state: enabled
-- name: blocks_complex_to_mag_0_1_0_0
+- name: blocks_complex_to_mag_0_1_0_1
   id: blocks_complex_to_mag
   parameters:
     affinity: ''
@@ -525,103 +254,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1528, 496.0]
-    rotation: 0
-    state: enabled
-- name: blocks_complex_to_mag_0_1_0_0_0
-  id: blocks_complex_to_mag
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1528, 536.0]
-    rotation: 0
-    state: enabled
-- name: blocks_complex_to_mag_0_1_0_0_0_0
-  id: blocks_complex_to_mag
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1528, 624.0]
-    rotation: 0
-    state: enabled
-- name: blocks_complex_to_mag_0_1_0_0_0_0_0
-  id: blocks_complex_to_mag
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1528, 672.0]
-    rotation: 0
-    state: enabled
-- name: blocks_complex_to_mag_0_1_0_0_0_0_0_0
-  id: blocks_complex_to_mag
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1528, 728.0]
-    rotation: 0
-    state: enabled
-- name: blocks_complex_to_mag_0_1_0_0_0_0_0_1
-  id: blocks_complex_to_mag
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1520, 784.0]
-    rotation: 0
-    state: enabled
-- name: blocks_complex_to_mag_0_1_0_0_1
-  id: blocks_complex_to_mag
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1528, 576.0]
+    coordinate: [608, 632.0]
     rotation: 0
     state: enabled
 - name: blocks_delay_0
@@ -641,28 +274,10 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [424, 556.0]
-    rotation: 0
-    state: disabled
-- name: blocks_multiply_const_vxx_0
-  id: blocks_multiply_const_vxx
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    const: 1/(N_Zc*Resampled_factor)
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    type: float
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [624, 732.0]
+    coordinate: [792, 568.0]
     rotation: 0
     state: enabled
-- name: blocks_nlog10_ff_0
+- name: blocks_nlog10_ff_0_1_1_0
   id: blocks_nlog10_ff
   parameters:
     affinity: ''
@@ -677,152 +292,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1744, 532.0]
+    coordinate: [784, 624.0]
     rotation: 0
     state: enabled
-- name: blocks_nlog10_ff_0_0
-  id: blocks_nlog10_ff
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    k: '0'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    n: '20'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1744, 588.0]
-    rotation: 0
-    state: enabled
-- name: blocks_nlog10_ff_0_0_0
-  id: blocks_nlog10_ff
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    k: '0'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    n: '20'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1752, 692.0]
-    rotation: 0
-    state: enabled
-- name: blocks_nlog10_ff_0_0_0_0
-  id: blocks_nlog10_ff
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    k: '0'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    n: '20'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1744, 748.0]
-    rotation: 0
-    state: enabled
-- name: blocks_nlog10_ff_0_0_0_1
-  id: blocks_nlog10_ff
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    k: '0'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    n: '20'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1752, 796.0]
-    rotation: 0
-    state: enabled
-- name: blocks_nlog10_ff_0_1
-  id: blocks_nlog10_ff
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    k: '0'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    n: '20'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1744, 476.0]
-    rotation: 0
-    state: enabled
-- name: blocks_nlog10_ff_0_1_1
-  id: blocks_nlog10_ff
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    k: '0'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    n: '20'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [784, 772.0]
-    rotation: 0
-    state: enabled
-- name: blocks_nlog10_ff_0_2
-  id: blocks_nlog10_ff
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    k: '0'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    n: '20'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1752, 636.0]
-    rotation: 0
-    state: enabled
-- name: blocks_null_sink_0
-  id: blocks_null_sink
-  parameters:
-    affinity: ''
-    alias: ''
-    bus_structure_sink: '[[0,],]'
-    comment: ''
-    num_inputs: '5'
-    type: float
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1768, 200.0]
-    rotation: 0
-    state: disabled
 - name: blocks_peak_detector_xb_0_1_0_0
   id: blocks_peak_detector_xb
   parameters:
@@ -840,7 +312,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [672, 260.0]
+    coordinate: [888, 448.0]
     rotation: 0
     state: enabled
 - name: blocks_stream_to_vector_0_0
@@ -858,7 +330,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [920, 448.0]
+    coordinate: [1128, 520.0]
     rotation: 0
     state: enabled
 - name: blocks_stream_to_vector_0_0_0
@@ -876,151 +348,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [496, 568.0]
-    rotation: 0
-    state: enabled
-- name: blocks_stream_to_vector_0_0_0_0
-  id: blocks_stream_to_vector
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_items: vector_size
-    type: float
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [792, 696.0]
-    rotation: 0
-    state: disabled
-- name: blocks_vector_to_stream_0_0
-  id: blocks_vector_to_stream
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_items: vector_size
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1312, 496.0]
-    rotation: 0
-    state: enabled
-- name: blocks_vector_to_stream_0_0_0
-  id: blocks_vector_to_stream
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_items: vector_size
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1320, 536.0]
-    rotation: 0
-    state: enabled
-- name: blocks_vector_to_stream_0_0_0_0
-  id: blocks_vector_to_stream
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_items: vector_size
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1320, 624.0]
-    rotation: 0
-    state: enabled
-- name: blocks_vector_to_stream_0_0_0_0_0
-  id: blocks_vector_to_stream
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_items: vector_size
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1328, 672.0]
-    rotation: 0
-    state: enabled
-- name: blocks_vector_to_stream_0_0_0_0_0_0
-  id: blocks_vector_to_stream
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_items: vector_size
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1344, 720.0]
-    rotation: 0
-    state: enabled
-- name: blocks_vector_to_stream_0_0_0_0_0_1
-  id: blocks_vector_to_stream
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_items: vector_size
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1320, 800.0]
-    rotation: 0
-    state: enabled
-- name: blocks_vector_to_stream_0_0_1
-  id: blocks_vector_to_stream
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_items: vector_size
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1320, 576.0]
+    coordinate: [1040, 568.0]
     rotation: 0
     state: enabled
 - name: epy_block_18_0
@@ -1086,7 +414,7 @@ blocks:
     inter_arrival_time_mean: Lambda
     maxoutbuf: '0'
     minoutbuf: '0'
-    q: '2'
+    q: Node_ID
     tau: Tau
     u: '1'
   states:
@@ -1097,109 +425,76 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [104, 876.0]
+    coordinate: [288, 728.0]
     rotation: 0
     state: enabled
 - name: epy_block_1_1
   id: epy_block
   parameters:
-    Nzc: '61'
-    RF: '2'
+    Node: Node_ID
+    Nzc: N_Zc
+    RF: Resampled_factor
     _source_code: "import numpy as np\nfrom gnuradio import gr\nimport pmt\nimport\
       \ csv\nfrom datetime import datetime\nfrom scipy.signal import find_peaks\n\n\
-      class blk(gr.sync_block):  \n    def __init__(self, vec_size=1024, Nzc=61, RF=4,\
-      \ filename=\"/home/student/Downloads/metadata.csv\"):\n        gr.sync_block.__init__(\n\
+      class blk(gr.sync_block):  \n    def __init__(self, vec_size=2048, Nzc=61, RF=4,\
+      \ Node=1, filename=\"/home/student/Downloads/metadata.csv\"):\n        gr.sync_block.__init__(\n\
       \            self,\n            name='NodeIdentifier',  \n            in_sig=[(np.uint8,\
-      \ vec_size), (np.complex64, vec_size)],\n            out_sig=[(np.complex64,\
-      \ vec_size), (np.complex64, vec_size),\n                     (np.complex64,\
-      \ vec_size), (np.complex64, vec_size),\n                     (np.complex64,\
-      \ vec_size),(np.complex64, vec_size),\n                     (np.complex64, vec_size)]\n\
-      \        )\n        self.vec_size = vec_size  \n        self.Nzc = Nzc\n   \
-      \     self.RF = RF\n        self.packet_started = [False for _ in range(7)]\n\
-      \        self.filename = filename\n\n        # Initialize CSV file\n       \
-      \ try:\n            with open(self.filename, 'a', newline='') as f:\n      \
-      \          writer = csv.writer(f)\n                if f.tell() == 0:\n     \
-      \               writer.writerow([\"NodeID\", \"Start Time\", \"End Time\", \"\
-      RSSI (dBm)\", \"RSRP (dBm)\", \n                                     \"RSSI\
-      \ (Linear)\", \"RSRP (Linear)\", \"Signal Power (dBm)\"])\n        except IOError:\n\
-      \            print(f\"Error: Could not write to file {self.filename}\")\n\n\
-      \    def calculate_rssi(self, signal, portion=0.5):\n        signal = signal.flatten()\n\
-      \        magnitude = np.abs(signal)\n        noise_floor = np.median(magnitude)\
-      \ * 0.5  # Dynamic noise threshold\n        peaks, _ = find_peaks(magnitude,\
-      \ height=noise_floor)\n\n        if len(peaks) == 0:\n            return -np.inf,\
-      \ 0\n\n        rssi_linear = np.max(magnitude)  # Use np.max for RSSI calculation\n\
-      \        rssi_dbm = 10 * np.log10(rssi_linear) if rssi_linear > 0 else -np.inf\n\
-      \        return rssi_dbm, rssi_linear\n\n    def calculate_rsrp(self, signal,\
-      \ portion=0.5):\n        signal = signal.flatten()\n        magnitude_squared\
-      \ = np.abs(signal)**2\n        noise_floor = np.median(magnitude_squared) *\
-      \ 0.5  # Dynamic noise threshold\n        peaks, _ = find_peaks(magnitude_squared,\
-      \ height=noise_floor)\n\n        if len(peaks) == 0:\n            return -np.inf,\
-      \ 0\n\n        rsrp_linear = np.max(magnitude_squared)\n        rsrp_dbm = 10\
-      \ * np.log10(rsrp_linear) if rsrp_linear > 0 else -np.inf\n        return rsrp_dbm,\
-      \ rsrp_linear\n\n    def get_signal_power(self, signal):\n        power_linear\
-      \ = np.mean(np.abs(signal)**2)\n        power_dbm = 10 * np.log10(power_linear)\
-      \ if power_linear > 0 else -np.inf\n        return power_dbm\n\n    def get_current_timestamp(self):\n\
+      \ vec_size), (np.complex64, vec_size)],\n            out_sig=None\n        )\n\
+      \        self.vec_size = vec_size  \n        self.Nzc = Nzc\n        self.RF\
+      \ = RF\n        self.Sender_ID = Node\n        self.packet_started = [False\
+      \ for _ in range(7)]\n        self.filename = filename\n\n        # Initialize\
+      \ CSV file\n        try:\n            with open(self.filename, 'a', newline='')\
+      \ as f:\n                writer = csv.writer(f)\n                if f.tell()\
+      \ == 0:\n                    writer.writerow([\"Sender_ID\", \"Receiver_ID\"\
+      , \"Timestamp\", \"Received Power (dBm)\"])\n        except IOError:\n     \
+      \       print(f\"Error: Could not write to file {self.filename}\")\n\n    def\
+      \ calculate_rsrp(self, signal,non_zero_indices):\n        signal = signal.flatten()\n\
+      \        len_sig = len(non_zero_indices)\n        \n        magnitude_squared\
+      \ = np.abs(signal[non_zero_indices[0]:non_zero_indices[0]+len_sig*self.RF*self.Nzc])**2\n\
+      \        \n        rsrp_linear = np.mean(magnitude_squared) #Results may be\
+      \ smaller that actual RSRP, since some part of signal may not have any zc sequence\
+      \ but only noise\n        rsrp_dbm = 10 * np.log10(rsrp_linear) if rsrp_linear\
+      \ > 0 else -np.inf\n        return rsrp_dbm\n\n    def get_current_timestamp(self):\n\
       \        return datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]\n\n   \
-      \ def start_packet_tags(self, NodeID, signal):\n        NodeID += 1  \n    \
-      \    start_time = self.get_current_timestamp()\n        rssi_dbm, rssi_linear\
-      \ = self.calculate_rssi(signal)\n        rsrp_dbm, rsrp_linear = self.calculate_rsrp(signal)\n\
-      \        signal_power = self.get_signal_power(signal)\n\n        self.add_item_tag(NodeID\
-      \ - 1, self.nitems_written(0), pmt.intern(\"rx_time_start\"), pmt.intern(start_time))\n\
-      \        self.add_item_tag(NodeID - 1, self.nitems_written(0), pmt.intern(\"\
-      node_id\"), pmt.from_long(NodeID))\n\n        try:\n            with open(self.filename,\
-      \ 'a', newline='') as f:\n                writer = csv.writer(f)\n         \
-      \       writer.writerow([NodeID, start_time, \"\", f\"{rssi_dbm:.6f}\", f\"\
-      {rsrp_dbm:.6f}\", \n                                 f\"{rssi_linear:.6f}\"\
-      , f\"{rsrp_linear:.6f}\", f\"{signal_power:.6f}\"])\n        except IOError:\n\
-      \            print(f\"Error: Could not write to file {self.filename}\")\n\n\
-      \    def stop_packet_tags(self, NodeID):\n        NodeID += 1\n        end_time\
-      \ = self.get_current_timestamp()\n\n        self.add_item_tag(NodeID - 1, self.nitems_written(0),\
-      \ pmt.intern(\"rx_time_stop\"), pmt.intern(end_time))\n\n        try:\n    \
-      \        with open(self.filename, 'r+') as f:\n                lines = f.readlines()\n\
-      \                for i in range(len(lines) - 1, -1, -1):\n                 \
-      \   if lines[i].startswith(str(NodeID)):\n                        parts = lines[i].strip().split(\"\
-      ,\")\n                        parts[2] = end_time\n                        lines[i]\
-      \ = \",\".join(parts) + \"\\n\"\n                        break\n           \
-      \     f.seek(0)\n                f.writelines(lines)\n        except IOError:\n\
-      \            print(f\"Error: Could not update file {self.filename}\")\n\n  \
-      \  def work(self, input_items, output_items):\n        in0 = input_items[0]\
-      \  \n        in1 = input_items[1]  \n\n        for i in range(len(output_items)):\n\
-      \            output_items[i][:] = 0\n\n        non_zero_indices = np.nonzero(in0)[1]\n\
-      \        packet_detector = [False for _ in range(7)]\n\n        if len(non_zero_indices)\
-      \ != 0:\n            for i in range(len(non_zero_indices) - 1):\n          \
-      \      if non_zero_indices[i + 1] > non_zero_indices[i]:\n                 \
-      \   node_index = ((np.abs(non_zero_indices[i + 1] - non_zero_indices[i] - self.Nzc\
-      \ * self.RF) - self.RF) // self.RF) % 7\n                    packet_detector[node_index]\
-      \ = True\n\n            if sum(packet_detector) == 1:\n                for i\
-      \ in range(len(packet_detector)):\n                    if packet_detector[i]\
-      \ and not self.packet_started[i]:\n                        output_items[i][:]\
-      \ = in1\n                        self.packet_started[i] = True\n           \
-      \             self.start_packet_tags(i, in1)\n                    elif packet_detector[i]\
-      \ and self.packet_started[i]:\n                        output_items[i][:] =\
-      \ in1\n            else:\n                for i in range(len(self.packet_started)):\n\
-      \                    if self.packet_started[i]:\n                        self.stop_packet_tags(i)\n\
-      \                        self.packet_started[i] = False\n                return\
-      \ 1  \n\n        for i in range(len(self.packet_started)):\n            if self.packet_started[i]\
-      \ and len(non_zero_indices) == 0:\n                self.stop_packet_tags(i)\n\
-      \                self.packet_started[i] = False\n\n        return len(in1)\n\
-      \n"
+      \ def start_packet(self, Receiver_ID, signal,non_zero_indices):\n        Receiver_ID\
+      \ += 1  \n        start_time = self.get_current_timestamp()\n        rsrp_dbm\
+      \ = self.calculate_rsrp(signal,non_zero_indices)\n        try:\n           \
+      \ with open(self.filename, 'a', newline='') as f:\n                writer =\
+      \ csv.writer(f)\n                writer.writerow([self.Sender_ID, Receiver_ID,\
+      \ start_time, f\"{rsrp_dbm:.6f}\"])\n        except IOError:\n            print(f\"\
+      Error: Could not write to file {self.filename}\")\n\n\n    def work(self, input_items,\
+      \ output_items):\n        in0 = input_items[0]  \n        in1 = input_items[1]\
+      \  \n\n        non_zero_indices = np.nonzero(in0)[1]\n        packet_detector\
+      \ = [False for _ in range(7)]\n\n        if len(non_zero_indices) != 0:\n  \
+      \          for i in range(len(non_zero_indices) - 1):\n                if non_zero_indices[i\
+      \ + 1] > non_zero_indices[i]:\n                    node_index = ((np.abs(non_zero_indices[i\
+      \ + 1] - non_zero_indices[i] - self.Nzc * self.RF) - self.RF) // self.RF) %\
+      \ 7\n                    packet_detector[node_index] = True\n\n            if\
+      \ sum(packet_detector) == 1:\n                for i in range(len(packet_detector)):\n\
+      \                    if packet_detector[i] and not self.packet_started[i]:\n\
+      \                    \n                        self.packet_started[i] = True\n\
+      \                        self.start_packet(i, in1,non_zero_indices)\n      \
+      \      else:\n                for i in range(len(self.packet_started)):\n  \
+      \                  if self.packet_started[i]:\n                        self.packet_started[i]\
+      \ = False\n                return 1  \n\n        for i in range(len(self.packet_started)):\n\
+      \            if self.packet_started[i] and len(non_zero_indices) == 0:\n   \
+      \             self.packet_started[i] = False\n\n        return len(in1)\n\n"
     affinity: ''
     alias: ''
     comment: ''
-    filename: '"/home/student/Downloads/peaks7_Metadata.csv"'
+    filename: f'./Results/Measurements_Node_{Node_ID}.csv'
     maxoutbuf: '0'
     minoutbuf: '0'
-    vec_size: '1024'
+    vec_size: vector_size
   states:
-    _io_cache: ('NodeIdentifier', 'blk', [('vec_size', '1024'), ('Nzc', '61'), ('RF',
-      '4'), ('filename', "'/home/student/Downloads/metadata.csv'")], [('0', 'byte',
-      1024), ('1', 'complex', 1024)], [('0', 'complex', 1024), ('1', 'complex', 1024),
-      ('2', 'complex', 1024), ('3', 'complex', 1024), ('4', 'complex', 1024), ('5',
-      'complex', 1024), ('6', 'complex', 1024)], '', ['Nzc', 'RF', 'filename', 'vec_size'])
+    _io_cache: ('NodeIdentifier', 'blk', [('vec_size', '2048'), ('Nzc', '61'), ('RF',
+      '4'), ('Node', '1'), ('filename', "'/home/student/Downloads/metadata.csv'")],
+      [('0', 'byte', 2048), ('1', 'complex', 2048)], [], '', ['Nzc', 'RF', 'filename',
+      'vec_size'])
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1072, 520.0]
+    coordinate: [1280, 520.0]
     rotation: 0
     state: enabled
 - name: fft_filter_xxx_0_0
@@ -1219,7 +514,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [344, 428.0]
+    coordinate: [528, 400.0]
     rotation: 0
     state: enabled
 - name: import_0
@@ -1232,7 +527,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [176, 68.0]
+    coordinate: [344, 264.0]
     rotation: 0
     state: true
 - name: import_1
@@ -1245,107 +540,10 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1320, 72.0]
+    coordinate: [2224, 1544.0]
     rotation: 0
-    state: true
-- name: qtgui_time_sink_x_0_2_1_1_0_1
-  id: qtgui_time_sink_x
-  parameters:
-    affinity: ''
-    alias: ''
-    alpha1: '0.7'
-    alpha10: '1.0'
-    alpha2: '0.7'
-    alpha3: '0.7'
-    alpha4: '1.0'
-    alpha5: '0.5'
-    alpha6: '1.0'
-    alpha7: '1.0'
-    alpha8: '1.0'
-    alpha9: '1.0'
-    autoscale: 'False'
-    axislabels: 'True'
-    color1: blue
-    color10: dark blue
-    color2: red
-    color3: green
-    color4: yellow
-    color5: dark red
-    color6: magenta
-    color7: black
-    color8: dark red
-    color9: dark green
-    comment: ''
-    ctrlpanel: 'False'
-    entags: 'True'
-    grid: 'True'
-    gui_hint: ''
-    label1: Node 1
-    label10: Signal 10
-    label2: Node 2
-    label3: Node 3
-    label4: Node 4
-    label5: Node 5
-    label6: Signal 6
-    label7: Signal 7
-    label8: Signal 8
-    label9: Signal 9
-    legend: 'True'
-    marker1: '-1'
-    marker10: '-1'
-    marker2: '-1'
-    marker3: '2'
-    marker4: '-1'
-    marker5: '3'
-    marker6: '-1'
-    marker7: '-1'
-    marker8: '-1'
-    marker9: '-1'
-    name: '"Detected node vector"'
-    nconnections: '7'
-    size: int(NOP)
-    srate: samp_rate*Resampled_factor
-    stemplot: 'False'
-    style1: '1'
-    style10: '1'
-    style2: '1'
-    style3: '3'
-    style4: '1'
-    style5: '5'
-    style6: '1'
-    style7: '1'
-    style8: '1'
-    style9: '1'
-    tr_chan: '0'
-    tr_delay: '0'
-    tr_level: '0.0'
-    tr_mode: qtgui.TRIG_MODE_FREE
-    tr_slope: qtgui.TRIG_SLOPE_POS
-    tr_tag: '""'
-    type: float
-    update_time: '2'
-    width1: '1'
-    width10: '1'
-    width2: '1'
-    width3: '1'
-    width4: '1'
-    width5: '1'
-    width6: '1'
-    width7: '1'
-    width8: '1'
-    width9: '1'
-    ylabel: '"Magnitude"'
-    ymax: '1.5'
-    ymin: '-80'
-    yunit: '""'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1968, 512.0]
-    rotation: 0
-    state: enabled
-- name: qtgui_time_sink_x_0_2_1_1_2_0
+    state: disabled
+- name: qtgui_time_sink_x_0_2_1_1_2_0_0
   id: qtgui_time_sink_x
   parameters:
     affinity: ''
@@ -1400,7 +598,7 @@ blocks:
     marker9: '-1'
     name: '"ReceivedSIgnal"'
     nconnections: '1'
-    size: int(NOP)
+    size: 25000*50
     srate: samp_rate*Resampled_factor
     stemplot: 'False'
     style1: '1'
@@ -1439,10 +637,10 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [896, 756.0]
+    coordinate: [888, 648.0]
     rotation: 0
     state: enabled
-- name: qtgui_time_sink_x_0_2_1_1_2_0_2
+- name: qtgui_time_sink_x_0_2_1_1_2_0_0_0
   id: qtgui_time_sink_x
   parameters:
     affinity: ''
@@ -1497,7 +695,7 @@ blocks:
     marker9: '-1'
     name: '"Peak"'
     nconnections: '1'
-    size: int(NOP)
+    size: 25000*50
     srate: samp_rate*Resampled_factor
     stemplot: 'False'
     style1: '1'
@@ -1517,7 +715,7 @@ blocks:
     tr_slope: qtgui.TRIG_SLOPE_POS
     tr_tag: '""'
     type: float
-    update_time: '5'
+    update_time: '2'
     width1: '1'
     width10: '1'
     width2: '1'
@@ -1529,16 +727,16 @@ blocks:
     width8: '1'
     width9: '1'
     ylabel: '"Magnitude"'
-    ymax: '1.2'
-    ymin: '-0.2'
+    ymax: '1'
+    ymin: '0'
     yunit: '""'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1232, 340.0]
+    coordinate: [1072, 408.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: uhd_usrp_sink_0
   id: uhd_usrp_sink
   parameters:
@@ -1813,7 +1011,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [512, 844.0]
+    coordinate: [608, 692.0]
     rotation: 0
     state: enabled
 - name: uhd_usrp_source_0
@@ -2249,63 +1447,26 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [64, 532.0]
+    coordinate: [352, 496.0]
     rotation: 0
     state: enabled
 
 connections:
-- [blocks_char_to_float_0, '0', qtgui_time_sink_x_0_2_1_1_2_0_2, '0']
-- [blocks_complex_to_mag_0_1_0, '0', blocks_multiply_const_vxx_0, '0']
+- [blocks_char_to_float_0, '0', qtgui_time_sink_x_0_2_1_1_2_0_0_0, '0']
 - [blocks_complex_to_mag_0_1_0, '0', blocks_peak_detector_xb_0_1_0_0, '0']
-- [blocks_complex_to_mag_0_1_0_0, '0', blocks_nlog10_ff_0_1, '0']
-- [blocks_complex_to_mag_0_1_0_0_0, '0', blocks_nlog10_ff_0, '0']
-- [blocks_complex_to_mag_0_1_0_0_0_0, '0', blocks_nlog10_ff_0_2, '0']
-- [blocks_complex_to_mag_0_1_0_0_0_0_0, '0', blocks_nlog10_ff_0_0_0, '0']
-- [blocks_complex_to_mag_0_1_0_0_0_0_0_0, '0', blocks_nlog10_ff_0_0_0_0, '0']
-- [blocks_complex_to_mag_0_1_0_0_0_0_0_1, '0', blocks_nlog10_ff_0_0_0_1, '0']
-- [blocks_complex_to_mag_0_1_0_0_1, '0', blocks_nlog10_ff_0_0, '0']
+- [blocks_complex_to_mag_0_1_0_1, '0', blocks_nlog10_ff_0_1_1_0, '0']
 - [blocks_delay_0, '0', blocks_stream_to_vector_0_0_0, '0']
-- [blocks_multiply_const_vxx_0, '0', blocks_nlog10_ff_0_1_1, '0']
-- [blocks_multiply_const_vxx_0, '0', blocks_stream_to_vector_0_0_0_0, '0']
-- [blocks_nlog10_ff_0, '0', blocks_null_sink_0, '1']
-- [blocks_nlog10_ff_0, '0', qtgui_time_sink_x_0_2_1_1_0_1, '1']
-- [blocks_nlog10_ff_0_0, '0', blocks_null_sink_0, '2']
-- [blocks_nlog10_ff_0_0, '0', qtgui_time_sink_x_0_2_1_1_0_1, '2']
-- [blocks_nlog10_ff_0_0_0, '0', blocks_null_sink_0, '4']
-- [blocks_nlog10_ff_0_0_0, '0', qtgui_time_sink_x_0_2_1_1_0_1, '4']
-- [blocks_nlog10_ff_0_0_0_0, '0', qtgui_time_sink_x_0_2_1_1_0_1, '5']
-- [blocks_nlog10_ff_0_0_0_1, '0', qtgui_time_sink_x_0_2_1_1_0_1, '6']
-- [blocks_nlog10_ff_0_1, '0', blocks_null_sink_0, '0']
-- [blocks_nlog10_ff_0_1, '0', qtgui_time_sink_x_0_2_1_1_0_1, '0']
-- [blocks_nlog10_ff_0_1_1, '0', qtgui_time_sink_x_0_2_1_1_2_0, '0']
-- [blocks_nlog10_ff_0_2, '0', blocks_null_sink_0, '3']
-- [blocks_nlog10_ff_0_2, '0', qtgui_time_sink_x_0_2_1_1_0_1, '3']
+- [blocks_nlog10_ff_0_1_1_0, '0', qtgui_time_sink_x_0_2_1_1_2_0_0, '0']
 - [blocks_peak_detector_xb_0_1_0_0, '0', blocks_char_to_float_0, '0']
 - [blocks_peak_detector_xb_0_1_0_0, '0', blocks_stream_to_vector_0_0, '0']
 - [blocks_stream_to_vector_0_0, '0', epy_block_1_1, '0']
 - [blocks_stream_to_vector_0_0_0, '0', epy_block_1_1, '1']
-- [blocks_vector_to_stream_0_0, '0', blocks_complex_to_mag_0_1_0_0, '0']
-- [blocks_vector_to_stream_0_0_0, '0', blocks_complex_to_mag_0_1_0_0_0, '0']
-- [blocks_vector_to_stream_0_0_0_0, '0', blocks_complex_to_mag_0_1_0_0_0_0, '0']
-- [blocks_vector_to_stream_0_0_0_0_0, '0', blocks_complex_to_mag_0_1_0_0_0_0_0, '0']
-- [blocks_vector_to_stream_0_0_0_0_0_0, '0', blocks_complex_to_mag_0_1_0_0_0_0_0_0,
-  '0']
-- [blocks_vector_to_stream_0_0_0_0_0_1, '0', blocks_complex_to_mag_0_1_0_0_0_0_0_1,
-  '0']
-- [blocks_vector_to_stream_0_0_1, '0', blocks_complex_to_mag_0_1_0_0_1, '0']
 - [epy_block_18_0, '0', uhd_usrp_sink_0, '0']
-- [epy_block_1_1, '0', blocks_vector_to_stream_0_0, '0']
-- [epy_block_1_1, '1', blocks_vector_to_stream_0_0_0, '0']
-- [epy_block_1_1, '2', blocks_vector_to_stream_0_0_1, '0']
-- [epy_block_1_1, '3', blocks_vector_to_stream_0_0_0_0, '0']
-- [epy_block_1_1, '4', blocks_vector_to_stream_0_0_0_0_0, '0']
-- [epy_block_1_1, '5', blocks_vector_to_stream_0_0_0_0_0_0, '0']
-- [epy_block_1_1, '6', blocks_vector_to_stream_0_0_0_0_0_1, '0']
 - [fft_filter_xxx_0_0, '0', blocks_complex_to_mag_0_1_0, '0']
+- [uhd_usrp_source_0, '0', blocks_complex_to_mag_0_1_0_1, '0']
 - [uhd_usrp_source_0, '0', blocks_delay_0, '0']
-- [uhd_usrp_source_0, '0', blocks_stream_to_vector_0_0_0, '0']
 - [uhd_usrp_source_0, '0', fft_filter_xxx_0_0, '0']
 
 metadata:
   file_format: 1
-  grc_version: 3.10.8.0
+  grc_version: 3.10.9.2
