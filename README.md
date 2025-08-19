@@ -20,7 +20,7 @@ This repository contains a GNU Flowgraph of the transceiver.
   a. The sampling rate at the receiver is twice the transmitter to improve correlation with the reference ZC sequence. If the resampling factor is changed, then the FFT Filter block requires taps that are adapted to the new sampling rate of the receiver.
   b. The FFT Filter block has as taps the complex conjugate version of the ZC sequence with root index U=1. This corresponds to applying correlation to the received signal in a compute efficient way.   
   c. A Peak Detector block detects peaks from the correlated signal.
-  d. The NodeIdentifier python Block receives as input the received signal as well as the peaks from the Peak Detector. The distance of the peaks corresponds to the length of the ZC sequence +- the index Q. Based on this, the node is identifies and the receive power is calculated as the mean of the received power on the packet.
+  d. The NodeIdentifier python Block receives as input the received signal as well as the peaks from the Peak Detector. The distance of the peaks corresponds to the length of the ZC sequence +- the index Q. Based on this, the node is identifies and the receive power is calculated as the mean of the received power on the packet. The resampling factor of 2 between receiver and transmitter is considered here.
 
 # Measured Data
 
